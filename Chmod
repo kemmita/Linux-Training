@@ -1,0 +1,7 @@
+**I could not use the actual username, but needed to use "u"**
+if you want to change a users permission to a specific fiel, you can use chmod.
+1.chmod u-w index.html will make it so that the user cannot write to the file specified. 
+2. chmod u-r index.html will make it so they cannot even see the file "READ"
+3. chmod u-x index.html it so the user cannot execute the file
+4. the above commands can be all done at once by chmod u-wrx index.html
+5. To add permissions run + instead of - 

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Make sure the script is being executed with superuser privileges
+if [[ $UID -ne 0 ]]
+then
+  echo 'please run with suod or as root'
+  exit 1;
+fi
+
+# Ask user to enter a username read -p is a shell builtin and -p simply stands for propmpt 
+read -p 'Please enter your new username: ' USER_NAME
+
+# Ask user for their full name
+read -p 'Please enter your full legal name: ' NAME
+
+# Ask user to create a password
+read -p 'Please create a password: ' PASSWORD
+
+# Create the user. Use the useradd keyword to add a new user
+useradd -c "$NAME" -m $USER_NAME
+# Set the password for the user. By echoing the password we use a pipe and pass it into the passwd that belongs to the user created above.
+
+echo $PASSWORD | passwd --stdin $USER_NAME
+# Force password change on first login. passwd -e will force the user to reset their password.
+passwd -e $USER_NAME
+exit 0

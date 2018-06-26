@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# THis script itterates through an array!
+
+# Create an array below, make sure to inclue the correct spacing. 
+LIST_OF_LANGUAGES='Java Linux Python JS'
+
+
+# Create for loop 
+for i in $LIST_OF_LANGUAGES
+ do
+  echo $i
+ done
+
+exit 1

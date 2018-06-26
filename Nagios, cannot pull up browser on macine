@@ -1,0 +1,4 @@
+iptables -L
+
+systemctl
+systemctl stop firewalld

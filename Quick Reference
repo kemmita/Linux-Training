@@ -1,0 +1,18 @@
+**Create New Folder** mkdir
+**Create New File** touch
+**Switch user** su - examplename
+**Switch to root** su -
+**Find IP Address** hostname -I
+**Current Location** pwd
+**Go Back One File** cd ..
+**List Directory Content** ls -l
+**cd Auto Complete** if you have a long file name and do not want to write the entire name, write the first word and then hit tab
+**Change name of file** mv script.js code.js, this will change the exisiting js file to the title of code.js
+**Delete a File** rm example.js
+**Delete a Directory** rm -rf example
+**Find a File** find . -name random.html
+**View Contents of File Without Opening in Nano** cat example.html
+**Downlaoding Things** wget or curl
+**View Directory as Tree** tree
+**Move files or Directories** supply the file or directory name along with the destination. mv testone testwo that will move direcotry testone into testwo
+**Copy Files Or Directories** To copy a file or direcotry, you must be in a file path for which both can be reached. then run cp code.php move.php

@@ -1,0 +1,5 @@
+1.hostname -I
+2.ip link show
+3.dhclient ens33
+
+            ^example dhclient address

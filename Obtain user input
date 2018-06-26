@@ -1,0 +1,2 @@
+//the read keyword will take the users input and then add it the variable defined USER_NAME
+read -p 'Please enter your new username: ' USER_NAME

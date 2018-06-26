@@ -1,0 +1,7 @@
+run command cd /home/yourusername/Desktop
+
+run command cd /usr/local
+then run ls
+
+if we want to see what direcotries or files exist beyond root, simply run command cd /
+then run command ls

@@ -1,0 +1,51 @@
+Nagios Core
+•	Have Nagios core installed on a virtual or non-virtual machine
+•	Too add a client or host to core, we will first need to create a new vm or have another machine we can connect to. On this vm or machine, we will need to install NRPE which stands for Nagios Remote Plugin Executor.
+•	Now that we have Nagios Core installed on our main server, we will want to monitor several different clients or hosts. We can monitor Linux, windows, db, and much more.
+•	Moving to our client server, we will first need to install EPEL, Extra Packages for Enterprise Linux. EPEL is an open source repository maintained by Fedora.
+•	Run yum install epel-release -y
+•	Now we will install NRPE to our Client
+•	Run yum install nrpe nagios-plugins-all openssl -y
+•	Now lets make changes for our NRPE configuration file.
+•	Now we need to make changes to our NRPE configuration file.
+•	Run nano /etc/nagios/nrpe.cfg
+•	Once in that config file we will need the Nagios core server ip address 
+•	allowed_hosts=127.0.0.1,192.168.0.16
+•	now start the NRPE service by running systemctl start nrpe
+•	now enable the service by running chkconfig nrpe on
+•	now the next step is to move to our Nagios core server terminal and add the client we are working on. We will add the client to the Nagios server configuration file.
+•	To get to the Nagios configuration file, run nano /usr/local/nagios/etc/nagios.cfg make sure that you have ran that command in the Nagios server terminal and not in the client terminal.
+•	Inside of the configuration field, you will see a line that looks exactly like this #cfg_dir=/usr/local/nagios/etc/servers you will need to remove the octothorpe from the beginning. 
+•	Now take that line from above and copy it to your computers clip board. As we will need it for the next command.
+•	Make directory with copied info above. Run mkdir /usr/local/nagios/etc/servers
+•	Now we need to create the configuration file for the clients to be monitored. This file will contain all the info on the clients we wish to monitor. 
+•	Run  nano /usr/local/nagios/etc/servers/clients.cfg
+•	The below info is what is needed in order to register a client. And is what we will place in the file we have just created
+define host{
+use linux-server
+host_name LinuxServerTwo
+alias LinuxServerTwo
+address 192.168.4.60
+max_check_attempts 5
+check_period 24x7
+notification_interval 30
+notification_period 24x7
+}
+•	Now restart the Nagios server by running systemctl restart Nagios
+•	Now if you head to your browser, you should be able to see the newclient has been created.
+•	Now lets define the service. Remaining in the Nagios server terminal direct your way to the clients configuration file. nano /usr/local/nagios/etc/servers/clients.cfg
+•	We already defined the host, now we need to define the services for that particular host, which in our case is a Linux Server. Notice how we reference the host_name.
+
+define service{
+
+            use                             local-service
+
+            host_name                       LinuxServerTwo
+
+            service_description             SWAP Uasge
+
+            check_command                   check_nrpe!check_swap
+}
+•	So that we are not confused, I want to make clear that both the define host and define service are kept in the same cfg file, they are not located in separate files. 
+•	Then run systemctl restart nagios then head to the browser and view the service that was added to your host.
+•	This is a helpful piece of code that pinpoints erros within the cfg file if you run by one /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg

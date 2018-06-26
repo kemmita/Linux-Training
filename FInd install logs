@@ -1,0 +1,7 @@
+cd /tmp
+ls
+find the direcotry you are interested in 
+cd nagiosna <- that is an exmaple
+ls
+look for install log
+nano install.log

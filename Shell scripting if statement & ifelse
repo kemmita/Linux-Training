@@ -1,0 +1,37 @@
+**if**
+#!/bin/bash 
+
+if [ condtion-is-true ]
+then 
+  command 1
+  command 2
+  command N
+fi
+
+
+
+**if else**
+#!/bin/bash 
+
+var="Apples"
+if [ "$var" = "potato" ]
+then 
+  echo "You seem to like potatos"
+else
+  echo "You do not seem to like potatoes"
+fi
+
+
+**else if**
+#!/bin/bash 
+
+var="Apples"
+if [ "$var" = "potato" ]
+then 
+  echo "You seem to like potatos"
+elif [ "$var" = "Apples" ]
+then
+  echo "You seem to like apples"
+else
+  echo "You suck!"
+fi

@@ -1,0 +1,4 @@
+[root@localhost ~]# groupadd programmers
+[root@localhost ~]# useradd -c "Rusty Kemmit" -g programmers -m -s /bin/bash rusty
+set password for user.
+[root@localhost ~]# passwd rusty

@@ -1,0 +1,10 @@
+ 1."find" will display all files 
+ 2."find -iname example.html" will return the file path for where that file is stored.
+ 
+ 3. "which" sublime will give us the location of sublime text.
+ 
+ 4. Installing and using locate
+ yum -y update
+ yum -y install mlocate
+ updatedb
+ to use locate, run command locate exmaple.html

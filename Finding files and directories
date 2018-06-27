@@ -1,5 +1,4 @@
- 1."find" will display all files 
- 2."find -iname example.html" will return the file path for where that file is stored.
+ 1. find / -name kemmit.php
  
  3. "which" sublime will give us the location of sublime text.
  

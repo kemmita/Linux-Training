@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# How to use Switch Statements Yo!
+# by using the pipe below, we can give the user the option to eneter hours or hour and the statement will execute.
+read -p 'What file would you like to access? ' FILE
+case $FILE in
+  hours)
+   echo 'hours.txt'
+   ;;
+  employees|employee)
+   echo 'employees.txt'
+   ;;
+  customers|customer|cunder)
+   echo 'customers.txt'
+   ;;
+  *)
+  echo 'No vaid option supplied, now exiting.' >&2
+  exit 1
+  ;;
+esac

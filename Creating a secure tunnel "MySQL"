@@ -1,0 +1,102 @@
+Creating a Secure Tunnel 
+
+The MySql database management system (DBMS) is typically installed on the server securely, so that it can only be accessed by applications on the server itself. To allow for a remote connection from your home computer we will need to create a secure tunnel between the server and your computer. We can then reach through the tunnel and use the phpMyAdmin program on the server to access the MySql DBMS on the server. To do this we will first need to create tunnel settings in Putty.
+
+•	Open the Putty program
+
+
+
+•	Click on the saved name of your server then click Load.
+
+
+
+•	Click the + sign to the left of SSH
+
+
+
+•	Click Tunnels
+
+
+
+•	In the Source port text box type 8888
+•	In the Destination text box type localhost:80
+•	Note there is a full colon between localhost and 80.
+•	Then click the Add button.
+
+
+
+•	You will now see an entry L8888 localhost:80 in the forwarded ports text box.
+
+
+
+•	Lastly, click on Session and then click the Save button.
+•	Your tunnel settings should now be saved in putty.
+
+•	Go ahead and open the session.
+
+•	Enter the server admin user name and password.
+•	Minimize Putty (do not close it).
+•	Putty establishes your secure tunnel while it is connected but for the next steps you do not need to issue commands at the server prompt, therefore you can minimize putty to get it out of the way. Do not close it, as this will close the secure connection to the server.
+
+Log into phpMyAdmin
+
+Next we will log in to phpMyAdmin so we can manipulate the MySql DBMS. 
+
+•	Open a browser.
+•	In the address bar at the top of the browser type the following: 
+http://localhost:8888/phpmyadmin
+
+
+
+•	The phpMyAdmin login page will appear.
+•	In the Username textbox type root 
+•	In the password textbox type in the application password you saved from the server boot file.
+•	Then click Go.
+
+
+
+•	Current databases in the MySql DBMS show on the left.
+•	Interface options show at the top.
+
+Create a Custom MySql DBMS User
+
+•	We will now create a custom MySql DBMS user. DBMS users can only log into the DBMS. They are not server users. These users can access the DBMS but they cannot log in to the server that the DBMS resides on.
+
+
+
+•	Click on User accounts at the top of the page. The current DBMS users will show.
+
+
+
+•	Click the Add user account link under the user listing.
+
+
+
+•	An Add user account page appears.
+•	In the User name text box type the name of your new DBMS user.
+•	Leave the Hostname textbox with the default %. The % signifies that the user can log in from any location or remote machine.
+•	In the Password and Re-type text boxes type a strong password.
+•	Check the checkbox for Grant all privileges on wildcard name.
+•	Check the Check all checkbox for Global privledges.
+
+
+
+•	Scroll to the bottom of the page and click Go.
+
+
+
+•	A new screen will appear that says “You have added a new user”
+
+
+
+●	Click SQL at the top of the phpMyAdmin page
+
+
+
+•	Type flush privileges in the SQL command box (resets all user privileges in the DBMS to current settings including new user settings you just made).
+
+•	Click Go on the bottom right
+
+•	Click on the phpMyAdmin Log Out button (top left, little doorway icon).
+•	Log back in using the new DBMS user name and password.
+•	Make sure to save the new DBMS user name and password somewhere where you can get to it. We will next use these credentials to restore the Adventureworks database into the MySql DBMS.

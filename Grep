@@ -1,0 +1,8 @@
+With the grep command we can find a keyword within a file. Using -n will list the line number of the kleyword is located.
+
+//using the command below, we will find all lines containing the word linux in the two files info and infotwo.txt
+grep -n "linux" info.txt infotwo.txt
+
+
+//using grep and find together can help us locate files containing a specific keyword
+find / -name *.php -exec grep -n function {} +

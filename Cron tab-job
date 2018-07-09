@@ -1,0 +1,20 @@
+1. In order to create a cron job in centos7 run crontab -e
+2. cron jobs will execute at a specific time and to set the time use the syntax below
+3. the cron below will place the output of the ls command inside of a new file called text.txt
+
+#m h dom mon dow command, Minute Hour DayOfMonth MonthNumber DayofWeek Command
+
+44 14 * * * ls > /var/local/code/text.txt
+
+
+
+the job below will update my centos7 os every month on the 23rd at 5:12AM
+
+
+#m h dom mon dow command, Minute Hour DayOfMonth MonthNumber
+
+
+12 5 23 * * sudo yum update
+
+
+

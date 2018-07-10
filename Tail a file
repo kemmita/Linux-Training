@@ -1,0 +1,2 @@
+1. run tail -f example.txt to watch the file change in real time. If you need to open a new window to make chnages to the file, simply
+right click the top of putty and select duplicate session. 

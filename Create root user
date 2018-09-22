@@ -1,0 +1,7 @@
+1. Run command sudo su
+2. Run vi /etc/ssh/sshd_config 
+// Once inside make sure permission root login looks like so.
+PermitRootLogin yes
+3. Run /etc/init.d/ssh restart
+4. passwd root
+5. You can now login as root user.

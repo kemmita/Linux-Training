@@ -1,0 +1,3 @@
+// Use your git credentials
+1.  git config --global user.email  kemmitr@yahoo.com
+2.  git config --global user.name "kemmitr"

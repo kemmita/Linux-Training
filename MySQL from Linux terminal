@@ -1,4 +1,4 @@
-From the command line type mysql
+From the command line type mysql or mysql -u root -p
 
 Show all databases: show databases;
 
